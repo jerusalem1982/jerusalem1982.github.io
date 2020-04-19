@@ -159,7 +159,7 @@
             <time datetime="2019-11-27T14:58:28.000Z" itemprop="datePublished">2019-11-27</time>
         </a>
     </div>
-
+ 阅读数量:<span id="/2019/11/27/ape/install-docker/" class="leancloud_visitors" data-flag-title="Ubuntu下Docker的安装"></span>次
 		
 
                 
@@ -175,7 +175,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2019/11/27/ape/install-docker/" data-id="ck952ddju00026ca6eo6bshfk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2019/11/27/ape/install-docker/" data-id="ck96gteio0008swa6131cun1t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -555,6 +555,46 @@
         </div>
     </div>
 </footer>
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+    var APP_ID = '你的app id';
+    var APP_KEY = '你的app key';
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+    });
+</script>
 
         
     
