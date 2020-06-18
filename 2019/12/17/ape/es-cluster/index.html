@@ -20,7 +20,7 @@
 <meta property="og:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz106.15.14.194的es重命名：mv">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.itboth.com/03/86/eMFjQr.png">
-<meta property="og:updated_time" content="2019-12-26T03:27:14.000Z">
+<meta property="og:updated_time" content="2020-06-18T14:59:55.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es集群部署（基于es-7.1.1）">
 <meta name="twitter:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz106.15.14.194的es重命名：mv">
@@ -168,10 +168,8 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p>本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。</p>
-<p><a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a><br>下载对应版本es<br>解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz<br>106.15.14.194的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node1<br>106.14.68.187的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node2<br>106.14.14.197的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node3<br>es默认是不允许以root用户启动，创建用户：useradd zfj<br>修改文件所有者和文件所在组：chown -R zfj:zfj elasticsearch-node1/<br>106.15.14.194创建目录：mkdir -p /var/data/elasticsearch1   /var/log/elasticsearch1<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch1<br>106.14.68.187创建目录：mkdir -p /var/data/elasticsearch2   /var/log/elasticsearch2<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch2<br>106.14.14.197创建目录：mkdir -p /var/data/elasticsearch3   /var/log/elasticsearch3<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch3</p>
-<p>切换到用户zfj下：su zfj<br>修改配置文件：vi jvm.options</p>
-<p>##-Xms4g</p>
-<p>##-Xmx4g<br>为：<br>-Xms512m<br>-Xmx512m</p>
+<p><a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a><br>下载对应版本es<br>解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz<br>106.15.14.194的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node1<br>106.14.68.187的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node2<br>106.14.14.197的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node3<br>es默认是不允许以root用户启动，创建用户：useradd zfj<br>修改文件所有者和文件所在组：chown -R zfj:zfj elasticsearch-node1/<br>106.15.14.194创建目录：mkdir -p /var/data/elasticsearch1   /var/log/elasticsearch1<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch1 /var/log/elasticsearch1<br>106.14.68.187创建目录：mkdir -p /var/data/elasticsearch2   /var/log/elasticsearch2<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch2 /var/log/elasticsearch2<br>106.14.14.197创建目录：mkdir -p /var/data/elasticsearch3   /var/log/elasticsearch3<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch3 /var/log/elasticsearch3</p>
+<p>切换到用户zfj下：su zfj</p>
 <p>修改106.15.14.194的配置文件：vi elasticsearch.yml</p>
 <p>#cluster.name: my-application</p>
 <p>#node.name: node-1</p>
@@ -187,7 +185,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2019/12/17/ape/es-cluster/" data-id="ck9keu39u0006sla6kdg5j3z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2019/12/17/ape/es-cluster/" data-id="ckbkwveai0001cla6c7kqib1e" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -263,11 +261,11 @@
         "genre": "猿类专栏",
         "datePublished": "2019-12-17",
         "dateCreated": "2019-12-17",
-        "dateModified": "2019-12-26",
+        "dateModified": "2020-06-18",
         "url": "https://www.commentpl.com/2019/12/17/ape/es-cluster/",
         "description": "本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。
 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz106.15.14.194的es重命名：mv "
-        "wordCount": 106
+        "wordCount": 108
     }
 </script>
 
