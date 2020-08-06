@@ -175,7 +175,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2019/08/30/premier-league/to-mourinho/" data-id="ckdila6e9000qbrssqtc0j23o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2019/08/30/premier-league/to-mourinho/" data-id="ckdilf0y8000qdossboqzkcph" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -528,6 +528,17 @@
     </div>
 
 
+{% if site.tags.length > 1 %}
+<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+    <canvas width="220" height="250" id="resCanvas" style="width=100%">
+        {{ list_tags() }}
+    </canvas>
+    </div>
+</div>
+{% endif %}
 
             
         

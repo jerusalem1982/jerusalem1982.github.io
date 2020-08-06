@@ -175,7 +175,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2020/02/03/premier-league/congratulations-to-munirio/" data-id="ckdila6e4000hbrss8pc7q772" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2020/02/03/premier-league/congratulations-to-munirio/" data-id="ckdilf0y2000hdossj6r56bu5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -527,6 +527,17 @@
     </div>
 
 
+{% if site.tags.length > 1 %}
+<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+    <canvas width="220" height="250" id="resCanvas" style="width=100%">
+        {{ list_tags() }}
+    </canvas>
+    </div>
+</div>
+{% endif %}
 
             
         
