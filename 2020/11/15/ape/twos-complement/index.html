@@ -20,7 +20,7 @@
 <meta property="og:description" content="本文摘自：https://blog.csdn.net/zl10086111/article/details/80907428 一. 机器数和真值在学习原码, 反码和补码之前, 需要先了解机器数和真值的概念. 1、机器数一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1. 比如，十进制中的数 +3 ，计算机字长为8位，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.commentpl.com/2020/11/15/ape/twos-complement/10101010.jpg">
-<meta property="og:updated_time" content="2020-11-15T11:01:40.375Z">
+<meta property="og:updated_time" content="2020-11-15T14:01:41.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原码、反码、补码知识详细讲解">
 <meta name="twitter:description" content="本文摘自：https://blog.csdn.net/zl10086111/article/details/80907428 一. 机器数和真值在学习原码, 反码和补码之前, 需要先了解机器数和真值的概念. 1、机器数一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1. 比如，十进制中的数 +3 ，计算机字长为8位，">
@@ -222,7 +222,6 @@
 <p>(-1) + (-127) = [1000 0001]原 + [1111 1111]原 = [1111 1111]补 + [1000 0001]补 = [1000 0000]补</p>
 <p>-1-127的结果应该是-128, 在用补码运算的结果中, [1000 0000]补 就是-128. 但是注意因为实际上是使用以前的-0的补码来表示-128, 所以-128并没有原码和反码表示.(对-128的补码表示[1000 0000]补算出来的原码是[0000 0000]原, 这是不正确的)</p>
 <p>使用补码, 不仅仅修复了0的符号以及存在两个编码的问题, 而且还能够多表示一个最低数. 这就是为什么8位二进制, 使用原码或反码表示的范围为[-127, +127], 而使用补码表示的范围为[-128, 127].</p>
-<p>因为机器使用补码, 所以对于编程中常用到的32位int类型, 可以表示范围是: [-231, 231-1] 因为第一位表示的是符号位.而使用补码表示时又可以多保存一个最小值.</p>
 
         </div>
         <footer class="article-footer">
@@ -230,7 +229,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2020/11/15/ape/twos-complement/" data-id="ckhj0efha0002ydsst09kq18m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2020/11/15/ape/twos-complement/" data-id="ckhj6u2cr0006mjssno3k2bm8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -312,7 +311,7 @@
 一. 机器数和真值在学习原码, 反码和补码之前, 需要先了解机器数和真值的概念.
 1、机器数一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.
 比如，十进制中的数 +3 ，计算机字长为8位，"
-        "wordCount": 253
+        "wordCount": 248
     }
 </script>
 
