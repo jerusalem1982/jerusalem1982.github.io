@@ -12,18 +12,18 @@
     
         <meta name="keywords" content>
     
-    <meta name="description" content="本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名：mv">
+    <meta name="description" content="本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es集群部署（基于es-7.1.1）">
-<meta property="og:url" content="https://www.commentpl.com/2019/12/17/es/es-cluster/index.html">
+<meta property="og:url" content="https://www.commentpl.com/2019/12/17/ape/es-cluster/index.html">
 <meta property="og:site_name" content="英超评论">
-<meta property="og:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名：mv">
+<meta property="og:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.itboth.com/03/86/eMFjQr.png">
-<meta property="og:updated_time" content="2020-12-02T03:54:42.004Z">
+<meta property="og:updated_time" content="2020-12-02T04:04:45.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es集群部署（基于es-7.1.1）">
-<meta name="twitter:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名：mv">
+<meta name="twitter:description" content="本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。 https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名">
 <meta name="twitter:image" content="http://img.itboth.com/03/86/eMFjQr.png">
     
 
@@ -138,7 +138,7 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-es/es-cluster" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ape/es-cluster" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
@@ -155,11 +155,11 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/12/17/es/es-cluster/" class="article-date">
+        <a href="/2019/12/17/ape/es-cluster/" class="article-date">
             <time datetime="2019-12-17T15:20:23.000Z" itemprop="datePublished">2019-12-17</time>
         </a>
     </div>
- 阅读数量:<span id="/2019/12/17/es/es-cluster/" class="leancloud_visitors" data-flag-title="es集群部署（基于es-7.1.1）"></span>次
+ 阅读数量:<span id="/2019/12/17/ape/es-cluster/" class="leancloud_visitors" data-flag-title="es集群部署（基于es-7.1.1）"></span>次
 		
 
                 
@@ -167,7 +167,7 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。</p>
+            <p>本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。</p>
 <p><a href="https://www.elastic.co/cn/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/cn/downloads/elasticsearch</a><br>下载对应版本es<br>解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz<br>192.168.14.194的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node1<br>192.168.68.187的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node2<br>192.168.14.197的es重命名：mv elasticsearch-7.1.1/ elasticsearch-node3<br>es默认是不允许以root用户启动，创建用户：useradd zfj<br>修改文件所有者和文件所在组：chown -R zfj:zfj elasticsearch-node1/<br>192.168.14.194创建目录：mkdir -p /var/data/elasticsearch1   /var/log/elasticsearch1<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch1 /var/log/elasticsearch1<br>192.168.68.187创建目录：mkdir -p /var/data/elasticsearch2   /var/log/elasticsearch2<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch2 /var/log/elasticsearch2<br>192.168.14.197创建目录：mkdir -p /var/data/elasticsearch3   /var/log/elasticsearch3<br>修改文件所有者和文件所在组：chown -R zfj:zfj /var/data/elasticsearch3 /var/log/elasticsearch3</p>
 <p>切换到用户zfj下：su zfj</p>
 <p>修改192.168.14.194的配置文件：vi elasticsearch.yml</p>
@@ -179,7 +179,7 @@
 <p>#discovery.seed_hosts: [“host1”, “host2”]</p>
 <p>#cluster.initial_master_nodes: [“node-1”, “node-2”]<br>为：<br>cluster.name: es-dev  #集群名称，相同名称为一个集群<br>node.name: elasticsearch1  #节点名称，集群模式下每个节点名称唯一<br>path.data: /var/data/elasticsearch1  #索引数据存放的位置<br>path.logs: /var/log/elasticsearch1  #日志文件存放的位置<br>network.host: 0.0.0.0  #监听地址，用于访问该es</p>
 <p>#设置绑定的ip地址，这里使用内网ip<br>network.bind_host: 192.168.0.4</p>
-<p>##设置其他节点和该节点交互的ip地址，把它设置为外网ip<br>network.publish_host: 192.168.14.194<br>discovery.seed_hosts: [“127.0.0.1:9301”, “192.168.68.187:9401”, “192.168.14.197:9501”]  #写入候选主节点的设备地址，在开启服务后可以被选为主节点<br>transport.tcp.port: 9301  #TCP的默认监听端口，默认9300<br>cluster.initial_master_nodes: [“elasticsearch1”, “elasticsearch2”, “elasticsearch3”]  #初始化一个新的集群时需要此配置来选举master<br>修改106.14.68.187的配置文件：vi elasticsearch.yml<br>cluster.name: es-dev<br>node.name: elasticsearch2<br>path.data: /var/data/elasticsearch2<br>path.logs: /var/log/elasticsearch2<br>network.host: 0.0.0.0</p>
+<p>##设置其他节点和该节点交互的ip地址，把它设置为外网ip<br>network.publish_host: 192.168.14.194<br>discovery.seed_hosts: [“127.0.0.1:9301”, “192.168.68.187:9401”, “192.168.14.197:9501”]  #写入候选主节点的设备地址，在开启服务后可以被选为主节点<br>transport.tcp.port: 9301  #TCP的默认监听端口，默认9300<br>cluster.initial_master_nodes: [“elasticsearch1”, “elasticsearch2”, “elasticsearch3”]  #初始化一个新的集群时需要此配置来选举master<br>修改192.168.68.187的配置文件：vi elasticsearch.yml<br>cluster.name: es-dev<br>node.name: elasticsearch2<br>path.data: /var/data/elasticsearch2<br>path.logs: /var/log/elasticsearch2<br>network.host: 0.0.0.0</p>
 <p>#设置绑定的ip地址，这里使用内网ip<br>network.bind_host: 192.168.0.5</p>
 <p>##设置其他节点和该节点交互的ip地址，把它设置为外网ip<br>network.publish_host: 192.168.68.187<br>discovery.seed_hosts: [“192.168.14.194:9301”, “127.0.0.1:9401”, “192.168.14.197:9501”]<br>transport.tcp.port: 9401<br>cluster.initial_master_nodes: [“elasticsearch1”, “elasticsearch2”, “elasticsearch3”]<br>修改192.168.14.197的配置文件：vi elasticsearch.yml<br>cluster.name: es-dev<br>node.name: elasticsearch3<br>path.data: /var/data/elasticsearch3<br>path.logs: /var/log/elasticsearch3<br>network.host: 0.0.0.0</p>
 <p>#设置绑定的ip地址，这里使用内网ip<br>network.bind_host: 192.168.0.6</p>
@@ -191,7 +191,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2019/12/17/es/es-cluster/" data-id="cki6voi1y0008epss5vj1kr7s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2019/12/17/ape/es-cluster/" data-id="cki6vztl30001huss68tcnpr6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -268,9 +268,9 @@
         "datePublished": "2019-12-17",
         "dateCreated": "2019-12-17",
         "dateModified": "2020-12-02",
-        "url": "https://www.commentpl.com/2019/12/17/es/es-cluster/",
-        "description": "本文介绍部署三个节点的es集群，三个节点ip分别为106.15.14.194，106.14.68.187，106.14.14.197。
-https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名：mv"
+        "url": "https://www.commentpl.com/2019/12/17/ape/es-cluster/",
+        "description": "本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。
+https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名"
         "wordCount": 114
     }
 </script>
@@ -623,7 +623,7 @@ https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：ta
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://www.commentpl.com/2019/12/17/es/es-cluster/';
+    var disqus_url = 'https://www.commentpl.com/2019/12/17/ape/es-cluster/';
     
     (function() {
     var dsq = document.createElement('script');
