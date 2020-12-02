@@ -6,13 +6,13 @@
     
 
     
-    <title>归档: 2019/12 | 英超评论</title>
+    <title>归档: 2020/12 | 英超评论</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="英超评论">
-<meta property="og:url" content="https://www.commentpl.com/archives/2019/12/index.html">
+<meta property="og:url" content="https://www.commentpl.com/archives/2020/12/index.html">
 <meta property="og:site_name" content="英超评论">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -125,7 +125,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>归档: 2019/12
+    <i class="icon fa fa-archive"></i>归档: 2020/12
     </h1>
 </div>
 
@@ -138,7 +138,7 @@
         
         <section class="archives-wrap">
             <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
             </div>
             <div class="archives">
     
@@ -149,63 +149,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/12/18/ape/install-jdk/" class="thumbnail">
+        <a href="/2020/12/02/ape/install-es-plugins/" class="thumbnail">
     
     
-        <span style="background-image:url(https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=af18103e1cdfa9ecfd2e51115aeb903e/b03533fa828ba61ef518ba0d4c34970a304e5919.jpg)" alt="CentOS安装JDK" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier data-disqus-url="https://www.commentpl.com/2019/12/18/ape/install-jdk/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/猿类专栏/">猿类专栏</a>
-            </div>
-            <div class="date"><time datetime="2019-12-18T01:30:46.000Z" itemprop="datePublished">2019-12-18</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/12/18/ape/install-jdk/">CentOS安装JDK</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            1、卸载CentOS操作系统自带JDK环境查找Java安装依赖库：rpm -qa | grep java卸载Java依赖库：yum -y remove java*2、创建存放文件的目录：mkdir /usr/lib/jvm3、解压JDK安装包到当前目录：tar -zxvf jdk-8u231-linux-x64.tar.gz重命名：mv jdk1.8.0_231/ jdk1.84、配置JDK添加J
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/12/17/ape/es-cluster/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img.itboth.com/03/86/eMFjQr.png)" alt="es集群部署（基于es-7.1.1）" class="thumbnail-image"></span>
+        <span style="background-image:url(https://www.commentpl.com/2020/12/2/ape/install-es-plugin/1.png)" alt="es插件的安装" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier data-disqus-url="https://www.commentpl.com/2019/12/17/ape/es-cluster/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier data-disqus-url="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/">0</span>
     
 </span>
 
@@ -218,18 +172,17 @@
             <div class="category">
             <a class="article-category-link" href="/categories/Elasticsearch专栏/">Elasticsearch专栏</a>
             </div>
-            <div class="date"><time datetime="2019-12-17T15:20:23.000Z" itemprop="datePublished">2019-12-17</time></div>
+            <div class="date"><time datetime="2020-12-02T04:42:25.000Z" itemprop="datePublished">2020-12-02</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/12/17/ape/es-cluster/">es集群部署（基于es-7.1.1）</a>
+        <a href="/2020/12/02/ape/install-es-plugins/">es插件的安装</a>
         </h1>
     
 
         <p class="article-excerpt">
-            本文介绍部署三个节点的es集群，三个节点ip分别为192.168.14.194，192.168.68.187，192.168.14.197。
-https://www.elastic.co/cn/downloads/elasticsearch下载对应版本es解压：tar -zxvf elasticsearch-7.1.1-linux-x86_64.tar.gz192.168.14.194的es重命名
+            Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。这里，我们利用网络文件系统（NFS）来统一管理es插件。注意到es5.5开始就已经移除了自定义插件安装目录path.plugins（https://www.elastic.co/guide/en/elasticsearch/reference/5.5/bre
         </p>
     </div>
 </article>
