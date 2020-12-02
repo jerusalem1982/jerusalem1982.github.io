@@ -20,7 +20,7 @@
 <meta property="og:description" content="Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。这里，我们利用网络文件系统（NFS）来统一管理es插件。注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，https://www.elastic.co/guide/en/elasticsearch/reference/5.5/bre">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/1.png">
-<meta property="og:updated_time" content="2020-12-02T06:27:43.585Z">
+<meta property="og:updated_time" content="2020-12-02T06:32:17.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es插件的安装">
 <meta name="twitter:description" content="Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。这里，我们利用网络文件系统（NFS）来统一管理es插件。注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，https://www.elastic.co/guide/en/elasticsearch/reference/5.5/bre">
@@ -167,7 +167,7 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。<br>这里，我们利用网络文件系统（NFS）来统一管理es插件。<br>注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/breaking_50_plugins.html#_custom_plugins_path，我们这里选集群中某个节点的plugins目录作为共享目录，其它节点则挂载该文件夹。" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/5.5/breaking_50_plugins.html#_custom_plugins_path，我们这里选集群中某个节点的plugins目录作为共享目录，其它节点则挂载该文件夹。</a><br>安装：CentOS是自带NFS，所以无需安装，要安装的话用yum -y install nfs-utils rpcbind<br>启动NFS：默认已启动，如果没有启动，输入命令：service rpcbind start、service nfs start<br>1、这里我们es集群有三个节点，在192.168.14.194节点上设置共享目录/opt/elasticsearch-node3/plugins，把该目录开放给192.168.68.187和192.168.14.197，编辑/etc/exports，增加两行<br>/opt/elasticsearch-node3/plugins 192.168.68.187(rw,no_root_squash,no_all_squash,sync)<br>/opt/elasticsearch-node3/plugins 192.168.14.197(rw,no_root_squash,no_all_squash,sync)<br>2、使配置生效，输入命令：exportfs -r<br>3、查看已共享的目录，输入命令：showmount -e<br>4、在192.168.68.187和192.168.14.197挂载共享文件夹，分别输入命令：<br> mount -t nfs 192.168.14.194:/opt/elasticsearch-node3/plugins /opt/elasticsearch-node1/plugins<br>和<br> mount -t nfs 192.168.14.194:/opt/elasticsearch-node3/plugins /opt/elasticsearch-node2/plugins<br>5、查看目录信息：df -hv。/opt/elasticsearch-node1/plugins和/opt/elasticsearch-node2/plugins已指向192.168.14.194的/opt/elasticsearch-node3/plugins<br>如果出现mount.nfs: Connection timed out连接超时，试试关闭服务端防火墙systemctl stop firewalld</p>
+            <p>Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。<br>这里，我们利用网络文件系统（NFS）来统一管理es插件。<br>注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，<a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.5/breaking_50_plugins.html，我们这里选集群中某个节点的plugins目录作为共享目录，其它节点则挂载该文件夹。" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/5.5/breaking_50_plugins.html，我们这里选集群中某个节点的plugins目录作为共享目录，其它节点则挂载该文件夹。</a><br>安装：CentOS是自带NFS，所以无需安装，要安装的话用yum -y install nfs-utils rpcbind<br>启动NFS：默认已启动，如果没有启动，输入命令：service rpcbind start、service nfs start<br>1、这里我们es集群有三个节点，在192.168.14.194节点上设置共享目录/opt/elasticsearch-node3/plugins，把该目录开放给192.168.68.187和192.168.14.197，编辑/etc/exports，增加两行<br>/opt/elasticsearch-node3/plugins 192.168.68.187(rw,no_root_squash,no_all_squash,sync)<br>/opt/elasticsearch-node3/plugins 192.168.14.197(rw,no_root_squash,no_all_squash,sync)<br>2、使配置生效，输入命令：exportfs -r<br>3、查看已共享的目录，输入命令：showmount -e<br>4、在192.168.68.187和192.168.14.197挂载共享文件夹，分别输入命令：<br> mount -t nfs 192.168.14.194:/opt/elasticsearch-node3/plugins /opt/elasticsearch-node1/plugins<br>和<br> mount -t nfs 192.168.14.194:/opt/elasticsearch-node3/plugins /opt/elasticsearch-node2/plugins<br>5、查看目录信息：df -hv。/opt/elasticsearch-node1/plugins和/opt/elasticsearch-node2/plugins已指向192.168.14.194的/opt/elasticsearch-node3/plugins<br>如果出现mount.nfs: Connection timed out连接超时，试试关闭服务端防火墙systemctl stop firewalld</p>
 <hr>
 <p>analysis-ik插件安装<br>到192.168.14.194节点的es安装目录下执行命令：<br>./bin/elasticsearch-plugin install <a href="https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip" target="_blank" rel="noopener">https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip</a><br>注意将7.1.1替换成对应的版本号<br>安装完成后，我们分别到192.168.68.187和192.168.14.197节点的es安装目录下，执行命令：<br>./bin/elasticsearch-plugin list<br>可以发现，这两个节点也已经安装了analysis-ik插件</p>
 <hr>
@@ -179,7 +179,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/" data-id="cki713m8q0004grssxg42u5yc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/" data-id="cki719i8b0004i7ssmp516j6u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
