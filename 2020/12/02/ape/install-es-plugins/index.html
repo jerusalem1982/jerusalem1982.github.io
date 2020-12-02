@@ -20,7 +20,7 @@
 <meta property="og:description" content="Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。这里，我们利用网络文件系统（NFS）来统一管理es插件。注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，https://www.elastic.co/guide/en/elasticsearch/reference/5.5/bre">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/1.png">
-<meta property="og:updated_time" content="2020-12-02T06:32:17.755Z">
+<meta property="og:updated_time" content="2020-12-02T13:15:14.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es插件的安装">
 <meta name="twitter:description" content="Elasticsearch插件必须安装在集群中的每个节点上才能使用，安装完成后必须重启每个节点才能生效，这显然太过繁琐且不利于插件的统一管理。这里，我们利用网络文件系统（NFS）来统一管理es插件。注意到es5.5开始就已经移除了自定义插件安装目录path.plugins，https://www.elastic.co/guide/en/elasticsearch/reference/5.5/bre">
@@ -171,7 +171,7 @@
 <hr>
 <p>analysis-ik插件安装<br>到192.168.14.194节点的es安装目录下执行命令：<br>./bin/elasticsearch-plugin install <a href="https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip" target="_blank" rel="noopener">https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip</a><br>注意将7.1.1替换成对应的版本号<br>安装完成后，我们分别到192.168.68.187和192.168.14.197节点的es安装目录下，执行命令：<br>./bin/elasticsearch-plugin list<br>可以发现，这两个节点也已经安装了analysis-ik插件</p>
 <hr>
-<p>head插件的安装<br>es5以上版本安装head需要安装node和grunt<br>到任一目录下执行：<br>git clone git://github.com/mobz/elasticsearch-head.git<br>cd elasticsearch-head<br>npm install<br>npm run start<br>open <a href="http://localhost:9100/" target="_blank" rel="noopener">http://localhost:9100/</a><br>由于同源策略，elasticsearch会拒绝elasticsearch-head对es的请求，这里需要在elasticsearcy.yml配置文件中增加两项配置：<br>http.cors.enabled: true<br>http.cors.allow-origin: “*”</p>
+<p>head插件的安装<br>es5以上版本安装head需要安装node和grunt<br>到任一目录下执行：<br>git clone git://github.com/mobz/elasticsearch-head.git<br>cd elasticsearch-head<br>npm install<br>npm run start<br>open <a href="http://localhost:9100/" target="_blank" rel="noopener">http://localhost:9100/</a><br>由于同源策略，elasticsearch会拒绝elasticsearch-head对es的请求，这里需要在elasticsearch.yml配置文件中增加两项配置：<br>http.cors.enabled: true<br>http.cors.allow-origin: “*”</p>
 
         </div>
         <footer class="article-footer">
@@ -179,7 +179,7 @@
 
 
 
-    <a data-url="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/" data-id="cki719i8b0004i7ssmp516j6u" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://www.commentpl.com/2020/12/02/ape/install-es-plugins/" data-id="cki7fnosz00048ass66hb5252" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
